@@ -33,6 +33,11 @@ class ResourceCategory extends Resource
         'name',
     ];
 
+    public static function label()
+    {
+        return 'Resource Categories';
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

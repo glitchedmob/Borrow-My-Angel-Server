@@ -34,6 +34,11 @@ class NationalResource extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return 'National Resources';
+    }
+
     /**
      * Get the fields displayed by the resource.
      *

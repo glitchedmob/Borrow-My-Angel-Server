@@ -34,6 +34,11 @@ class LocalResource extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return 'Local Resources';
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
