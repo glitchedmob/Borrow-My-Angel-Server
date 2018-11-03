@@ -20,7 +20,8 @@ class CreateResourcesTable extends Migration
             $table->string('phone', 11)->nullable();
             $table->string('url')->nullable();
             $table->enum('location_level', ['local', 'national']);
-            $table->string('location')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
             $table->timestamps();
         });
     }
