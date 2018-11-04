@@ -19,6 +19,13 @@ class CreateAngelsTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip');
+            $table->string('phone');
+            $table->boolean('active')->default(0);
+            $table->integer('age');
+            $table->enum('gender', ['female', 'male', 'non_binary']);
             $table->rememberToken();
             $table->timestamps();
         });

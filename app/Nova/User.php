@@ -3,9 +3,9 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\Password;
 
 class User extends Resource
@@ -45,8 +45,6 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make(),
-
             Text::make('Name')
                 ->sortable()
                 ->rules('required', 'max:255'),
@@ -61,6 +59,15 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:6')
                 ->updateRules('nullable', 'string', 'min:6'),
+            Text::make('Age')->hideFromIndex(),
+            Select::make('Gender')->options([
+                'female' => 'Female',
+                'male' => 'Male',
+                'non_binary' => 'Non-Binary',
+            ])->displayUsingLabels(),
+            Text::make('City')->hideFromIndex(),
+            Text::make('State')->hideFromIndex(),
+            Text::make('Zip')->hideFromIndex(),
         ];
     }
 
