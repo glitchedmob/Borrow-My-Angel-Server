@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class AngelController extends Controller
 {
-    public function login() {
+    public function login()
+    {
         $credentials = request(['email', 'password']);
         if (!$token = auth('angels_api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -22,6 +23,18 @@ class AngelController extends Controller
     public function signup(Request $request)
     {
         $angel = new Angel($request->all());
+        $angel->save();
+
+        return response()->json($angel);
+    }
+
+    public function setStatus(Request $request)
+    {
+        $angel = Angel::find(auth()->user()->id);
+
+        $newStatus = $request->input('status');
+
+        $angel->status = $newStatus;
         $angel->save();
 
         return response()->json($angel);
