@@ -41,9 +41,19 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
+        'nova' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'users_api' => [
+            'driver' => 'jwt',
             'provider' => 'users',
+        ],
+
+        'angels_api' => [
+            'driver' => 'jwt',
+            'provider' => 'angels',
         ],
     ],
 
@@ -67,13 +77,18 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Admin::class,
+            'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'angels' => [
+            'driver' => 'eloquent',
+            'model' => App\Angel::class,
+        ],
+
+         'admins' => [
+             'driver' => 'eloquent',
+             'model' => App\Admin::class,
+         ],
     ],
 
     /*

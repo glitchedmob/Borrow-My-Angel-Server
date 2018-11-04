@@ -2,20 +2,21 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Password;
 
-class User extends Resource
+class Angel extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\User';
+    public static $model = 'App\\Angel';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -59,12 +60,15 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:6')
                 ->updateRules('nullable', 'string', 'min:6'),
+
+            Boolean::make('Active'),
             Text::make('Age')->hideFromIndex(),
             Select::make('Gender')->options([
                 'female' => 'Female',
                 'male' => 'Male',
                 'non_binary' => 'Non-Binary',
             ])->displayUsingLabels(),
+            Text::make('Phone')->hideFromIndex(),
             Text::make('City')->hideFromIndex(),
             Text::make('State')->hideFromIndex(),
             Text::make('Zip')->hideFromIndex(),
