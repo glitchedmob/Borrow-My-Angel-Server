@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'nova' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
         'users_api' => [
             'driver' => 'jwt',
             'provider' => 'users',
@@ -80,10 +85,10 @@ return [
             'model' => App\Angel::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'admins' => [
+             'driver' => 'eloquent',
+             'model' => App\Admin::class,
+         ],
     ],
 
     /*
