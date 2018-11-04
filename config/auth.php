@@ -41,9 +41,14 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
+        'users_api' => [
+            'driver' => 'jwt',
             'provider' => 'users',
+        ],
+
+        'angels_api' => [
+            'driver' => 'jwt',
+            'provider' => 'angels',
         ],
     ],
 
@@ -67,7 +72,12 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Admin::class,
+            'model' => App\User::class,
+        ],
+
+        'angels' => [
+            'driver' => 'eloquent',
+            'model' => App\Angel::class,
         ],
 
         // 'users' => [
