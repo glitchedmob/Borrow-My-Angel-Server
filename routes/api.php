@@ -24,12 +24,12 @@ Route::post('users/signup', 'UserController@signup');
 Route::post('angels/login', 'AngelController@login');
 Route::post('angels/signup', 'AngelController@signup');
 
-Route::group([
-    'middleware' => 'jwt.auth',
-], function($router) {
-   // Routes defined here can only be accessed when authenticated
+Route::group(['middleware' => 'jwt.auth:api'], function() {
+    auth()->shouldUse('users_api');
+    Route::get('users/me', 'UserController@me');
 });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'jwt.auth:api'], function() {
+    auth()->shouldUse('angels_api');
+    Route::get('angels/me', 'AngelController@me');
 });

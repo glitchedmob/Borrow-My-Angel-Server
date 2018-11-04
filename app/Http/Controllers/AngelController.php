@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AngelController extends Controller
 {
@@ -14,7 +15,12 @@ class AngelController extends Controller
 
         return response()->json([
             'token' => $token,
-            'expires' => auth('angels_api')->factory()->getTTL() * 60,
         ]);
+    }
+
+
+    public function me()
+    {
+        return response()->json(auth()->user());
     }
 }

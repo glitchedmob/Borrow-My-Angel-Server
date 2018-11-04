@@ -14,7 +14,11 @@ class UserController extends Controller
 
         return response()->json([
             'token' => $token,
-            'expires' => auth('users_api')->factory()->getTTL() * 60,
         ]);
+    }
+
+    public function me()
+    {
+        return response()->json(auth()->user());
     }
 }
