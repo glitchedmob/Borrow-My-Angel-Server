@@ -35,9 +35,9 @@ Route::group(['middleware' => 'jwt.auth:api'], function() {
     Route::post('angels/me/status', 'AngelController@setStatus');
 });
 
-Route::post('/chat/token', 'chatController@token');
+Route::post('/chat/token', 'ChatController@token');
 
-Route::get('/chat/token', 'chatController@token');
+Route::get('/chat/token', 'ChatController@token');
 
 Route::get('/chat/users', 'ChatController@getUsers');
 
