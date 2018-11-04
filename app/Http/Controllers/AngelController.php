@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Angel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +17,14 @@ class AngelController extends Controller
         return response()->json([
             'token' => $token,
         ]);
+    }
+
+    public function signup(Request $request)
+    {
+        $angel = new Angel($request->all());
+        $angel->save();
+
+        return response()->json($angel);
     }
 
 

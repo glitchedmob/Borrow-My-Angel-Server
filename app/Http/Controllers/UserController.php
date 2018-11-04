@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,6 +16,14 @@ class UserController extends Controller
         return response()->json([
             'token' => $token,
         ]);
+    }
+
+    public function signup(Request $request)
+    {
+        $user = new User($request->all());
+        $user->save();
+
+        return response()->json($user);
     }
 
     public function me()
