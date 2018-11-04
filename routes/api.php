@@ -37,6 +37,8 @@ Route::group(['middleware' => 'jwt.auth:api'], function() {
 
 Route::post('/chat/token', 'chatController@token');
 
+Route::get('/chat/token', 'chatController@token');
+
 Route::get('/chat/users', 'ChatController@getUsers');
 
 Route::get('/chat/users/{userId}', 'ChatController@getUser');
