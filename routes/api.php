@@ -34,3 +34,17 @@ Route::group(['middleware' => 'jwt.auth:api'], function() {
     Route::get('angels/me', 'AngelController@me');
     Route::post('angels/me/status', 'AngelController@setStatus');
 });
+
+Route::post('/chat/token', 'chatController@token');
+
+Route::get('/chat/users', 'ChatController@getUsers');
+
+Route::get('/chat/users/{userId}', 'ChatController@getUser');
+
+Route::post('/chat/users', 'ChatController@createUser');
+
+Route::delete('/chat/users/{userId}', 'ChatController@deleteUser');
+
+Route::post('/chat/room', 'ChatController@createRoom');
+
+Route::post('/chat/roomAddUser/{roomId}/{userId}', 'ChatController@roomAddUser');
