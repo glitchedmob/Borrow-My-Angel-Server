@@ -11,6 +11,13 @@ class AngelController extends Controller
     public function login()
     {
         $credentials = request(['email', 'password']);
+
+        $angel = Angel::where('email', $credentials['email'])->get()[0];
+        
+        if (!$angel->active) {
+            return response()->json(['error' => 'Not Activated!!!'], 401);
+        }
+
         if (!$token = auth('angels_api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
