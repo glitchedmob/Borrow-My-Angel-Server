@@ -3,12 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Resource;
 
 class ResourceCategory extends Model
 {
-    public function resources()
+    public function localResources()
     {
-        return $this->belongsToMany(Resource::class)->withTimestamps();
+        return $this->hasMany(LocalResource::class);
+    }
+
+    public function nationalResources()
+    {
+        return $this->hasMany(NationalResource::class);
     }
 }
