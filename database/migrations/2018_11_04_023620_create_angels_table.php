@@ -26,6 +26,9 @@ class CreateAngelsTable extends Migration
             $table->boolean('active')->default(0);
             $table->integer('age');
             $table->enum('gender', ['female', 'male', 'non_binary']);
+            $table->enum('status', ['available', 'not_available', 'do_not_disturb']);
+            $table->string('chat_user_id')->nullable();
+            $table->json('available_chat_rooms')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

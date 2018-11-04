@@ -32,4 +32,5 @@ Route::group(['middleware' => 'jwt.auth:api'], function() {
 Route::group(['middleware' => 'jwt.auth:api'], function() {
     auth()->shouldUse('angels_api');
     Route::get('angels/me', 'AngelController@me');
+    Route::post('angels/me/status', 'AngelController@setStatus');
 });
