@@ -56,9 +56,7 @@ class LocalResource extends Resource
             Text::make('City'),
             Text::make('State'),
             Text::make('Zip'),
-            BelongsTo::make('Resource Category', 'category', ResourceCategory::class)
-                ->nullable()
-                ->searchable(),
+            BelongsTo::make('Resource Category', 'resourceCategory', ResourceCategory::class),
         ];
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NationalResource extends Model
 {
-    public function category()
+    public function resourceCategory()
     {
         return $this->belongsTo(ResourceCategory::class);
     }

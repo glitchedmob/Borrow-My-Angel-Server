@@ -14,8 +14,10 @@ use Illuminate\Http\Request;
 */
 
 
-Route::get('resources/local', 'LocalResourcesController@index');
-Route::get('resources/national', 'NationalResourcesController@index');
+Route::get('resources/local/search', 'LocalResourcesController@search');
+Route::get('resources/local', 'LocalResourcesController@show');
+Route::get('resources/national/search/', 'NationalResourcesController@search');
+Route::get('resources/national', 'NationalResourcesController@show');
 Route::get('resources/categories', 'ResourceCategoryController@index');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

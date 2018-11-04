@@ -53,9 +53,7 @@ class NationalResource extends Resource
             Textarea::make('Description'),
             Text::make('Phone'),
             Text::make('Url'),
-            BelongsTo::make('Resource Category', 'category', ResourceCategory::class)
-                ->nullable()
-                ->searchable(),
+            BelongsTo::make('Resource Category', 'resourceCategory', ResourceCategory::class),
         ];
     }
 
