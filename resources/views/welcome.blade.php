@@ -32,7 +32,7 @@
         <div class="container card text-center" style="min-width: 500px;">
             <div class="row">
                 <div class="card-header">
-                    <h1>Someone has recommended the Borrow My Angle app to you.</h1>
+                    <h1>Someone has recommended the Borrow My Angel app to you.</h1>
                 </div>
                 <div class="img-thumbnail mx-auto">
                     <img src="\img/bmaLogo.jpeg" alt="Borrow My Angel Logo" />
