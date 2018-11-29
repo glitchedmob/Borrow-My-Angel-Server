@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Angel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AngelController extends Controller
 {
@@ -29,7 +30,9 @@ class AngelController extends Controller
 
     public function signup(Request $request)
     {
-        $angel = new Angel($request->all());
+        $values = $request->all();
+        $values['password'] = Hash::make($values['password']);
+        $angel = new Angel($values);
         $angel->save();
 
         return response()->json($angel);
